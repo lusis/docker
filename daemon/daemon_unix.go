@@ -193,7 +193,7 @@ func checkConfigOptions(config *Config) error {
 func checkSystem() error {
 	// TODO Windows. Once daemon is running on Windows, move this code back to
 	// NewDaemon() in daemon.go, and extend the check to support Windows.
-	if runtime.GOOS != "linux" {
+	if (runtime.GOOS != "linux") && (runtime.GOOS != "freebsd") {
 		return ErrSystemNotSupported
 	}
 	if os.Geteuid() != 0 {
